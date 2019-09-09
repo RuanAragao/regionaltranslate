@@ -2,11 +2,22 @@ import React, { useState } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 
+// banco de dados **
+const database = {
+  'ola': 'e ai',
+  'como vai?': 'comé que tá?'
+}
+
+// Função de tradução
 function Translate(w) {
-  if (w === "ola") {
-    return "e aí";
+  var res = database[w];
+  // procura pela palavra
+  if ( res ) {
+    // retorna a tradução
+    return res;
   }
 
+  // caso não enconte, retorna a mesma palavra.
   return w;
 }
 
