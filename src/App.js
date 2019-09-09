@@ -11,7 +11,7 @@ function Translate(w) {
 }
 
 function App() {
-  const [worlds, setWorlds] = useState('');
+  const [words, setWords] = useState('');
   
 
   return (
@@ -21,15 +21,15 @@ function App() {
       </header>
       <main>
         <div className="translate-box">
-          <div className="worlds-input">
+          <div className="words-input">
             <div className="source-wrap">
               <div className="input-wrap">
                 <textarea 
                   className="textarea" 
                   id="TextFrom"
                   placeholder="Escreva aqui"
-                  onChange={e => setWorlds(e.target.value)}
-                  value={worlds}
+                  onChange={e => setWords(e.target.value)}
+                  value={words}
                   autoFocus
                 ></textarea> 
               </div>
@@ -41,7 +41,7 @@ function App() {
               <textarea 
                 className="textarea" 
                 id="TextFor"
-                value={Translate(worlds)}
+                value={Translate(words)}
                 readOnly
               ></textarea>    
             </div>
