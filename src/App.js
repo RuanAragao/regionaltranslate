@@ -23,6 +23,12 @@ function Translate(w) {
 
 function App() {
   const [words, setWords] = useState('');
+  const [separatedWords, setSeparatedWords] = useState([]);
+
+  const onChangeWords = (event) => {
+    setWords(event.target.value);
+    setSeparatedWords(words.split(' '));
+  };
   
 
   return (
@@ -39,7 +45,7 @@ function App() {
                   className="textarea" 
                   id="TextFrom"
                   placeholder="Escreva aqui"
-                  onChange={e => setWords(e.target.value)}
+                  onChange={onChangeWords}
                   value={words}
                   autoFocus
                 ></textarea> 
