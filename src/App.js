@@ -9,16 +9,22 @@ const database = {
 }
 
 // Função de tradução
-function Translate(w) {
-  var res = database[w];
+function Translate(word) {
+
+  //First remove accents
+  const withoutAccents = word.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+  //Second remove special characters
+  const withoutSpecialChar = withoutAccents.replace(/[^\w\s]/gi, '');
+
+  const response = database[withoutSpecialChar];
   // procura pela palavra
-  if ( res ) {
+  if ( response ) {
     // retorna a tradução
-    return res;
+    return response;
   }
 
   // caso não enconte, retorna a mesma palavra.
-  return w;
+  return withoutSpecialChar;
 }
 
 function App() {
